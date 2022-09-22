@@ -89,7 +89,7 @@ void loop() {
     lcd.setCursor(1,1);
     lcd.print(celcius_1);
     lcd.print((char)233);
-    lcd.serCursor(9 ,1);
+    lcd.setCursor(9 ,1);
     lcd.write(2);
     lcd.setCursor(10, 1);
     lcd.print(humidity_1);
