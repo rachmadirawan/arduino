@@ -1,4 +1,3 @@
-s
 
 /* --- www.nyebarilmu.com --- */
 #include "DHT.h" //library sensor yang telah diimportkan
