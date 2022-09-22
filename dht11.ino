@@ -1,11 +1,11 @@
-
+s
 
 /* --- www.nyebarilmu.com --- */
 #include "DHT.h" //library sensor yang telah diimportkan
 #define DHTPIN 2     //Pin apa yang digunakan
 #define DHTTYPE DHT11   // DHT 11
 
-DHT dht(DHTPIN, DHTTYPE);
+DHT dht(DHTPIN, DHTTYPE)
 
 void setup() {
   Serial.begin(9600); //baud komunikasi serial
