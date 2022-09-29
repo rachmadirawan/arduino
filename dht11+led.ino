@@ -1,5 +1,8 @@
-#include "DHT.h" //library sessor yang telah di includekan
-#include <LiquidCrsytal_PCF8574.h>
+
+#include <DHT.h>
+
+#include <LiquidCrystal_PCF8574.h>
+
 #include <Wire.h>
 
 #define DHTPIN 2 //Pin yang digunakan
@@ -9,7 +12,7 @@ LiquidCrystal_PCF8574 lcd(0x27);
 
 DHT dht(DHTPIN, DHTTYPE);
 
-byte pin_termo[] = //icon water temperature
+byte pic_termo[] = //icon water temperature
 {
     B00100,
     B01010,
@@ -21,7 +24,7 @@ byte pin_termo[] = //icon water temperature
     B01110
 };
 
-byte puc_humd[8] = //icon for water
+byte pic_humd[8] = //icon for water
 {
     B00100,
     B00100,
@@ -58,7 +61,7 @@ void loop() {
     float celcius_1 =  dht.readTemperature();
 
     //pembacaan format Fahrenheit
-    float fahrenheit_1 = dht.readtemperature(true);
+    float fahrenheit_1 = dht.readTemperature(true);
 
     //mengecek pembacaan apakah terjadi kegagalan atau tidak
     if(isnan(humidity_1) || isnan(celcius_1) || isnan(fahrenheit_1)){
@@ -66,10 +69,10 @@ void loop() {
         return;
     }
     //prosedur pembacaan data indeks panas dalam bentuk fahrenheit
-    float htof = dht.computerHeatIndex(fahrenheit_1, humidity_1);
+    float htof = dht.computeHeatIndex(fahrenheit_1, humidity_1);
 
     //prosedur pembacaan data indeks panas dalam bentuk celcius
-    float htoc = dht.computerHeatIndex(celcius_1, humidity_1, false);
+    float htoc = dht.computeHeatIndex(celcius_1, humidity_1, false);
 
     //pembacaan nila pembacaan data kelembaban
     Serial.print("Kelembaban: ");
